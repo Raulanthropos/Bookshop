@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import { Container, Row, Col, Carousel, ListGroup } from 'react-bootstrap'
+import { Container, Row, Col, Carousel } from 'react-bootstrap'
 import horror from '../data/horror.json'
 
 class LatestRelease extends Component {
@@ -16,7 +16,7 @@ class LatestRelease extends Component {
           <Col xs={12} md={6} className="text-center">
             <h1>Welcome to Fantasy Books!</h1>
             <h3>Check out our amazing collection!</h3>
-            <Carousel interval={9999}>
+            <Carousel interval={9999999}>
               {horror.map((fantasia) => (
                 <Carousel.Item key={fantasia.asin}>
                   <img

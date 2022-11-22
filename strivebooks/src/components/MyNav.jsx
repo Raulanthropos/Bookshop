@@ -1,8 +1,11 @@
 import { Navbar, Nav } from 'react-bootstrap'
+import { Component } from 'react'
 
-const MyNav = (props) => (
+class MyNav extends Component {
+    render() {
+        return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Navbar.Brand href="#home">{props.Brand}</Navbar.Brand>
+      <Navbar.Brand href="#home">{this.props.Brand}</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="ml-auto">
@@ -12,6 +15,6 @@ const MyNav = (props) => (
         </Nav>
       </Navbar.Collapse>
     </Navbar>
-  )
-
+  )}
+}
   export default MyNav;

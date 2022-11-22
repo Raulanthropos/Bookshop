@@ -1,7 +1,9 @@
 import React from "react";
+import { Component } from 'react';
 import { Container, Row, Col } from "react-bootstrap";
 
-const MyFooter = () => {
+class MyFooter extends Component {
+    render() {
   return (
     <Container className="bg-dark text-white w-100">
         <Row>
@@ -12,6 +14,8 @@ const MyFooter = () => {
         </Row>
     </Container>
   );
+  }
 }
+
 
 export default MyFooter;
