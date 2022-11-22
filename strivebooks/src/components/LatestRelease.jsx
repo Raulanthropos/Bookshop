@@ -14,9 +14,9 @@ class LatestRelease extends Component {
         <Row className="justify-content-center mt-3">
           {/* this is the same thing as writing <div className="col col-xs-12 col-md-6"> */}
           <Col xs={12} md={6} className="text-center">
-            <h1>Welcome to Fantasy Books!</h1>
+            <h1>Welcome to Horror Books!</h1>
             <h3>Check out our amazing collection!</h3>
-            <Carousel interval={9999999}>
+            <Carousel interval={5000}>
               {horror.map((fantasia) => (
                 <Carousel.Item key={fantasia.asin}>
                   <img
@@ -29,7 +29,7 @@ class LatestRelease extends Component {
                       })
                     }}
                   />
-                  <Carousel.Caption>
+                  <Carousel.Caption className='bg-dark'>
                     <h3 className='font-weight-bolder'>{fantasia.title}</h3>
                     <p className='font-weight-bolder'>{fantasia.price}$</p>
                   </Carousel.Caption>

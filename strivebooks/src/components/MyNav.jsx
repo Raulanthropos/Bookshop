@@ -8,7 +8,7 @@ class MyNav extends Component {
       <Navbar.Brand href="#home">{this.props.Brand}</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
-        <Nav className="ml-auto">
+        <Nav className="mr-auto">
           <Nav.Link href="#menu">Home</Nav.Link>
           <Nav.Link href="#reservation">About</Nav.Link>
           <Nav.Link href="#findus">Browse</Nav.Link>

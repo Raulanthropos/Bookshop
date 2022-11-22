@@ -9,7 +9,7 @@ class MyFooter extends Component {
         <Row>
             <Col>
                 <h2>This is a Footer!</h2>
-                <p>Epicode @{new Date().getFullYear()}</p>
+                <p>Ioannis Psychias @ {new Date().getFullYear()}</p>
             </Col>
         </Row>
     </Container>

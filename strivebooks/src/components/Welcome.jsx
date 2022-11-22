@@ -4,7 +4,7 @@ import { Container, Jumbotron } from "react-bootstrap";
 function Welcome() {
     return (
       <div>
-        <Jumbotron fluid className="styleContrast styleOverlay">
+        <Jumbotron fluid>
           <Container>
             <h1 className="text-dark">Welcome! Our book store is now open for business!</h1>
             <p className="text-dark">
