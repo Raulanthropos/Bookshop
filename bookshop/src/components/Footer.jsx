@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux'
+import React from 'react'
 
 const Footer = () => {
   const booksFromRedux = useSelector((state) => state.book.stock)

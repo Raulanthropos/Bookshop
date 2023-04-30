@@ -4,6 +4,7 @@ import { FaShoppingCart } from 'react-icons/fa'
 import { useSelector, useDispatch } from 'react-redux'
 import { setUsernameAction, setUsernameActionAsync } from '../redux/actions'
 import { useState } from 'react'
+import React from 'react'
 
 // useSelector is a Redux Hook coming from the bindings library
 // that can grant to this component "read access" to the Redux Store

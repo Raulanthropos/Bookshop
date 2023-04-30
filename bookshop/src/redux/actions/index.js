@@ -82,7 +82,7 @@ export const getBooksAction = () => {
     console.log('getState', getState())
     try {
       let resp = await fetch(
-        'https://striveschool-api.herokuapp.com/food-books'
+        'http://localhost:3001/books'
       )
       if (resp.ok) {
         let fetchedBooks = await resp.json()
