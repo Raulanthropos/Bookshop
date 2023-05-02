@@ -1,7 +1,7 @@
 // the reducer function is in charge of computing the new application state
 // whenever an action gets dispatched
 
-import { SET_USERNAME } from '../actions'
+import { SET_USERNAME, LOGIN_SUCCESS, LOGIN_FAILURE, SET_CURRENT_USER } from '../actions'
 
 // the reducer is a PURE FUNCTION!
 // - from the same input, always return the same output
@@ -18,6 +18,10 @@ import { SET_USERNAME } from '../actions'
 
 const initialState = {
   name: '',
+  currentUser: null,
+  accessToken: null,
+  error: null,
+  isAuthenticated: false
 }
 
 // let's force the initialState to be the first value for the
@@ -38,6 +42,23 @@ const userReducer = (state = initialState, action) => {
         ...state,
         name: action.payload, // this is the new username, just set
       }
+      case LOGIN_SUCCESS:
+        return {
+          ...state,
+          accessToken: action.payload,
+          isAuthenticated: true,
+        };
+      case SET_CURRENT_USER:
+        return {
+          ...state,
+          currentUser: action.payload,
+          isAuthenticated: true,
+        };
+      case LOGIN_FAILURE:
+        return {
+          ...state,
+          error: "Invalid email or password",
+        };
 
     default:
       return state
