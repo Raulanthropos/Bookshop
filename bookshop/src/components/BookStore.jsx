@@ -4,14 +4,17 @@ import BookList from './BookList'
 import BookDetail from './BookDetail'
 import { useDispatch, useSelector } from 'react-redux'
 import { getBooksAction } from '../redux/actions'
+import React from 'react'
 
 const BookStore = () => {
   const [bookSelected, setBookSelected] = useState(null)
 
   const dispatch = useDispatch()
-  const booksFromRedux = useSelector((state) => state.book.stock)
-  // re-wiring the BookStore component, reading the books not from its
-  // local state anymore but from the Redux Store
+  const booksFromRedux = useSelector((state) => state.book.stock.map((book) => ({
+    ...book,
+    cover: `/images/${book.cover}`
+  })))
+  console.log("booksFromRedux", booksFromRedux)
 
   useEffect(() => {
     dispatch(getBooksAction())

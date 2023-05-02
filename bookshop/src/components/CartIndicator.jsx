@@ -4,6 +4,7 @@ import { FaShoppingCart } from 'react-icons/fa'
 import { useSelector, useDispatch } from 'react-redux'
 import { setUsernameAction, setUsernameActionAsync } from '../redux/actions'
 import { useState } from 'react'
+import React from 'react'
 
 // useSelector is a Redux Hook coming from the bindings library
 // that can grant to this component "read access" to the Redux Store
@@ -19,7 +20,7 @@ const CartIndicator = () => {
   const cartLength = useSelector((state) => state.cart.content.length)
   // now cartLength is always going to be a digit: the length of the
   // content array sitting in the cart slice of the Store
-  const username = useSelector((state) => state.user.name)
+  const username = useSelector((state) => state.user.currentUser)
 
   // even if we are now working with different reducers managing separate slices,
   // the "store" argument in useSelector still point to the "joined" store!
@@ -44,16 +45,10 @@ const CartIndicator = () => {
           </Button>
         </div>
       ) : (
-        <Form onSubmit={handleSubmit}>
-          <Form.Group>
-            <Form.Control
-              type="text"
-              placeholder="Login here!"
-              value={value}
-              onChange={(e) => setValue(e.target.value)}
-            />
-          </Form.Group>
-        </Form>
+        <>
+<h4>You need to be logged in to add items to the cart!</h4>
+<Button onClick={() => navigate("/login")}>Login</Button>
+</>
       )}
     </div>
   )

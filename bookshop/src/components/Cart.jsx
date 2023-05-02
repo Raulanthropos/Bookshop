@@ -2,6 +2,7 @@ import { Col, Row, Button } from 'react-bootstrap'
 import { FaTrash } from 'react-icons/fa'
 import { useSelector, useDispatch } from 'react-redux'
 import { removeFromCartAction } from '../redux/actions'
+import React from 'react'
 
 // Cart now needs to read/"write" to the store, reading the value
 // of cart.content and being able to dispatch an action for removing

@@ -1,7 +1,9 @@
+import React from 'react'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import './App.css'
 import CartIndicator from './components/CartIndicator'
 import BookStore from './components/BookStore'
+import Login from './components/Login';
 import Cart from './components/Cart'
 import { Col, Container, Row, Spinner } from 'react-bootstrap'
 import Footer from './components/Footer'
@@ -25,6 +27,7 @@ const App = () => {
           <CartIndicator />
         </Row>
         <Routes>
+          <Route path="/login" element={<Login />} />
           <Route path="/" element={<BookStore />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>

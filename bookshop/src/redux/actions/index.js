@@ -10,6 +10,10 @@ export const SET_USERNAME = 'SET_USERNAME'
 export const GET_BOOKS = 'GET_BOOKS'
 export const GET_BOOKS_LOADING = 'GET_BOOKS_LOADING'
 export const GET_BOOKS_ERROR = 'GET_BOOKS_ERROR'
+export const SET_CURRENT_USER = 'SET_CURRENT_USER'
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
+export const LOGIN_FAILURE = 'LOGIN_FAILURE'
+
 
 // this is a function returning an action
 // in Redux terminology, this is called an "action creator"
@@ -82,7 +86,7 @@ export const getBooksAction = () => {
     console.log('getState', getState())
     try {
       let resp = await fetch(
-        'https://striveschool-api.herokuapp.com/food-books'
+        'http://localhost:3001/books'
       )
       if (resp.ok) {
         let fetchedBooks = await resp.json()
@@ -130,3 +134,49 @@ export const getBooksAction = () => {
     }
   }
 }
+
+export const loginUser = (user) => {
+  return async (dispatch) => {
+    try {
+      const loginUrl = "http://localhost:3001/users/login";
+      const postOptions = {
+        method: "POST",
+        body: JSON.stringify(user),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+      const response = await fetch(loginUrl, postOptions);
+      if (response.ok) {
+        const result = await response.json();
+        dispatch({
+          type: LOGIN_SUCCESS,
+          payload: result.accessToken,
+        });
+        const getUrl = "http://localhost:3001/users/me";
+        const authorizationBearerToken = `Bearer ${result.accessToken}`;
+        const getOptions = {
+          headers: {
+            Authorization: authorizationBearerToken,
+            "Content-Type": "application/json",
+          },
+        };
+        const getResponse = await fetch(getUrl, getOptions);
+        if (getResponse.ok) {
+          const user = await getResponse.json();
+          dispatch({
+            type: SET_CURRENT_USER,
+            payload: user,
+          });
+        }
+      } else {
+        dispatch({
+          type: LOGIN_FAILURE,
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+

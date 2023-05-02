@@ -11,16 +11,6 @@ import localStorage from 'redux-persist/lib/storage'
 import { persistReducer, persistStore } from 'redux-persist'
 import { encryptTransform } from 'redux-persist-transform-encrypt'
 
-// our redux store looked like this:
-// const initialState = {
-//   cart: {
-//     content: []
-//   },
-//   user: {
-//     name: ''
-//   }
-// }
-
 const persistConfig = {
   key: 'root', // ???
   storage: localStorage, // the default engine
